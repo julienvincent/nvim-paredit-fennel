@@ -4,7 +4,9 @@
 
 Provides a language extension implementation to [nvim-paredit](https://github.com/julienvincent/nvim-paredit) for the Fennel programming language
 
-## Usage
+## Installation 
+
+### Using [folke/lazy.vim](https://github.com/folke/lazy.nvim)
 
 ```lua
 {
@@ -12,8 +14,7 @@ Provides a language extension implementation to [nvim-paredit](https://github.co
   dependencies = { "julienvincent/nvim-paredit" },
   ft = { "fennel" },
   config = function()
-    local paredit_fennel = require("nvim-paredit-fennel")
-    paredit_fennel.setup()
+    require("nvim-paredit-fennel").setup()
   end
 }
 ```
