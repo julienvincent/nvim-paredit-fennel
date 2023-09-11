@@ -23,7 +23,7 @@ prepare:
     mkdir -p ./.build/dependencies
     git clone --depth 1 https://github.com/nvim-lua/plenary.nvim ./.build/dependencies/plenary.nvim
     git clone --depth 1 https://github.com/nvim-treesitter/nvim-treesitter ./.build/dependencies/nvim-treesitter
-    git clone --depth 1 --branch jv/extension-api https://github.com/julienvincent/nvim-paredit ./.build/dependencies/nvim-paredit
+    git clone --depth 1 https://github.com/julienvincent/nvim-paredit ./.build/dependencies/nvim-paredit
   }
 
 test: prepare
