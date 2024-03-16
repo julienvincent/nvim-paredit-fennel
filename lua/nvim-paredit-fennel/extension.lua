@@ -57,18 +57,26 @@ function M.node_is_comment(node)
 end
 
 function M.get_form_edges(node)
-  local node_range = { node:range() }
+  local outer_range = { node:range() }
 
   local form = M.unwrap_form(node)
-  local form_range = { form:range() }
 
-  local left_range = { node_range[1], node_range[2] }
-  left_range[3] = form_range[1]
-  left_range[4] = form_range[2] + 1
+  local left_bracket_range = { form:field("open")[1]:range() }
+  local right_bracket_range = { form:field("close")[1]:range() }
 
-  local right_range = { form:range() }
-  right_range[1] = right_range[3]
-  right_range[2] = right_range[4] - 1
+  local left_range = {
+    outer_range[1],
+    outer_range[2],
+    left_bracket_range[3],
+    left_bracket_range[4],
+  }
+
+  local right_range = {
+    right_bracket_range[1],
+    right_bracket_range[2],
+    outer_range[3],
+    outer_range[4],
+  }
 
   local left_text = vim.api.nvim_buf_get_text(0, left_range[1], left_range[2], left_range[3], left_range[4], {})
   local right_text = vim.api.nvim_buf_get_text(0, right_range[1], right_range[2], right_range[3], right_range[4], {})
