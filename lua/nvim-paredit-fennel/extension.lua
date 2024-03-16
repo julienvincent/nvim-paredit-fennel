@@ -5,17 +5,8 @@ local M = {}
 
 local form_types = {
   "list",
-  "let",
-  "fn",
-  "for",
-  "local",
+  "sequence",
   "table",
-  "sequential_table",
-  "quoted_list",
-  "let_clause",
-  "sequential_table_binding",
-  "parameters",
-  "each",
 }
 
 M.whitespace_chars = { " ", "," }
